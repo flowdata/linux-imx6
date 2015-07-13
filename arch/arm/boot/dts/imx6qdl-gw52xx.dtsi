@@ -31,6 +31,19 @@
 		bootargs = "console=ttymxc1,115200";
 	};
 
+
+	gpio {
+		compatible = "gpio-keys";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		autorepeat;
+		button@1 {
+			label = "GPIO Key Back";
+			linux,code = <158>;
+			debounce-interval = <100>;
+			gpios = <&gpio1 20 GPIO_ACTIVE_LOW>;
+		};
+	};
 	leds {
 		compatible = "gpio-leds";
 
